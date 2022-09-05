@@ -1,0 +1,29 @@
+Modificación de portfolio/models.py
+	Se agregó from django.db.models.fields
+	se creó la clase proyectos
+	
+python manage.py makemigrations
+python manage.py migration
+
+Se crea el super usuario para la administración del sitio
+	user:admin
+	pass:admin
+	
+Desde el modulo de portfolio/ se edita admin.py para registrar el modelo
+y se haga visible en la consola de http://127.0.0.1:8000/admin
+
+Desde el módulo de admin, una vez registrado el modelo (Proyecto) se 
+pueden ir agregando los proyectos desde la página de django
+
+Hay que modificar en django_proyecto_cac setting.py para poder ver las imagenes
+y luego de STATIC_URL se agrega
+	MEDIA_ROOT = BASE_DIR / 'media'
+para que todas las imagenes sean comunes a los proyectos
+
+Luego hay que modificar urls.py y agregar
+
+	from django.conf import settings
+	from django.conf.urls.static import static
+	
+y debajo de urlpatterns:
+	urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
