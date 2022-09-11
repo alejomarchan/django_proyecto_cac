@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Proyecto Django</title>
+</head>
+<body>
+    <h1>Probando el proyecto Django</h1>
+    <pre>{{proyecto}}</pre>
+    {% for proyecto in proyectos%}
+        <h2>{{proyecto.titulo}}</h2>
+        <p>{{proyecto.descripcion}}</p>
+        <img src="{{proyecto.imagen.url}}" alt="{{proyecto.titulo}}">
+        {% if proyecto.url %}
+            <a href="{{proyecto.url}}">{{proyecto.url}}</a>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
