@@ -27,3 +27,13 @@ Luego hay que modificar urls.py y agregar
 	
 y debajo de urlpatterns:
 	urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+	
+Dentro de  portfolio creamos la carpeta templates que contendran nuestros html
+En views de portfolio editamos views.py y agregamos la función que queremos renderizar
+En urls.py colocamos el include para colocar las otras urls que iremos definiendo en cada urls.py de cada app
+	
+En la parte de Blog creamos el modelo. 
+Ahora lo incluimos en el registro
+Una vez creado el modelo en models.py del blog, hay que migrar el nuevo modelo a la Base de Datos:
+	python manage.py makemigrations
+	python manage.py migrate
