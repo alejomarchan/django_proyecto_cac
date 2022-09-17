@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Mostrando el post detail</h1>
+{% extends 'layout.html' %}
+{% block content %}
+
     <h2>{{post.titulo}}</h2>
-    <h3>{{post.fecha}}</h3>
-    <p>{{post.descripcion}}</p>
-        <img src="{{post.imagen.url}}" alt="post.titulo">
+    <h3 class="my-2 h5">{{post.fecha}}</h3>
+    <img src="{{post.imagen.url}}" alt="post.titulo" class="img-fluid">
+    <div class="div my-4">
+        <p class="text-justify">{{post.descripcion|safe}}</p>
+    </div>    
 </body>
-</html>
+{% endblock %}

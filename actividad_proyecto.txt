@@ -1,3 +1,7 @@
+Administrador del sistema:
+user:admin
+pass:admin
+
 Modificación de portfolio/models.py
 	Se agregó from django.db.models.fields
 	se creó la clase proyectos
@@ -37,3 +41,10 @@ Ahora lo incluimos en el registro
 Una vez creado el modelo en models.py del blog, hay que migrar el nuevo modelo a la Base de Datos:
 	python manage.py makemigrations
 	python manage.py migrate
+
+Reutilización de los html
+	El contenido de los html que vamos generando con Django los podemos ir exportando a un solo hmtl que podremos
+	reutilizar para agregarle los contenidos y el formato. En nuestro caso está en
+	/portfolio/templates/layout.html	
+
+	Le agregamos los estilos con bootstrap. Se crea el portfolio/partials/navbar.html

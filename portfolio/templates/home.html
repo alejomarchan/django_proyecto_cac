@@ -1,21 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Proyecto Django</title>
-</head>
-<body>
-    <h1>Probando el proyecto Django</h1>
-    <pre>{{proyecto}}</pre>
-    {% for proyecto in proyectos%}
-        <h2>{{proyecto.titulo}}</h2>
-        <p>{{proyecto.descripcion}}</p>
-        <img src="{{proyecto.imagen.url}}" alt="{{proyecto.titulo}}">
-        {% if proyecto.url %}
-            <a href="{{proyecto.url}}">{{proyecto.url}}</a>
-        {% endif %}
-    {% endfor %}
-</body>
-</html>
+{% extends 'layout.html' %}
+{% block content %}
+    {% load static %}
+    <header class="row bg-black">
+        <div class="col-md-4">
+            <img src="{% static 'portfolio/codo_a_codo.jpg' %}" alt="">
+        </div>
+        <div class="col-md-8 my-auto">
+            <h1>Este es el proyecto de Codo</h1>
+            <h3>Esto se desarrolló utilizando Python</h3>
+            <p>
+                Para la la finalización del curso de Python Avanzado, se desarrolló esta Página Web bajo Django que fue la continuación del programa de Fullstack. 
+
+            </p>
+
+        </div>
+    </header>
+    <div class="row my-4 text-center">
+        <pre>{{proyecto}}</pre>
+        {% for proyecto in proyectos%}
+            <div class="col-md-4 p-4">
+                <div class="card bg-black card-proyecto align-items-stretch">
+                    <div class="card-body">
+                        <h2>{{proyecto.titulo}}</h2>
+                        <p>{{proyecto.descripcion}}</p>
+                        <img src="{{proyecto.imagen.url}}" alt="{{proyecto.titulo}}" class="card-img-top">
+                        {% if proyecto.url %}
+                            <a href="{{proyecto.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">visítalo</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

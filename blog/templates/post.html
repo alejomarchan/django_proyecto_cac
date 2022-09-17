@@ -1,20 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'layout.html' %}
+{% block content %}
     <h1>Hmtl del Blog</h1>
     {% for post in posts %}
-        <h2>{{post.titulo}}</h2>
-        <h3>{{post.fecha}}</h3>
-        <p>{{post.descripcion | striptags | truncatechars:50}}</p>
-        <img src="{{post.imagen.url}}" alt="post.titulo">
-        <a href="{% url 'blog:post_detail' post.id %}">{{post.titulo}}</a>
-
+        <div class="div p-3">
+            <div class="card card-body bg-black">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="{{post.imagen.url}}" alt="post.titulo" class="img-fluid">
+                    </div>
+                    <div class="col-9">
+                        <h2>{{post.titulo}}</h2>
+                        <p>{{post.descripcion | striptags | truncatechars:50}}</p>
+                        <p>{{post.fecha|date:'d M Y'}}</p>
+                        <a href="{% url 'blog:post_detail' post.id %}">{{post.titulo}}</a>
+                    </div>
+                </div>         
+            </div>
+        </div>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
