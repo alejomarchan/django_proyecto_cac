@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h3>Hmtl del logout</h3>
+    <br>
+    <div class="alert alert-success" role="alert">
+        <h2 style="text-align: center;">Logged out!</h2>
+    </div>
+
+    <h3>Quieres entrar de nuevo?</h3>
+    <a href="{% url 'login' %}">---> Login</a> <br>
+    <a href="{% url 'home' %}"><--- de vuelta al inicio</a>
+{% endblock content %}

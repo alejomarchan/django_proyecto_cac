@@ -1,7 +1,9 @@
 from distutils.command.upload import upload
-from tkinter import image_names
-from anyio import TypedAttributeLookupError
 from django.db import models
+
+"""Con estos módulos de Django hago las importaciones necesarias para los tipos
+    de datos que va a contener nuestro modelo
+"""
 from django.db.models.fields import CharField, URLField
 from django.db.models.fields.files import ImageField
 

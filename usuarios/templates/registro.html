@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Hmtl del Registro</h1>
+    <hr>
+    
+    <form action="" method="POST">
+        {% csrf_token %}
+    
+        {% for campo in formulario %}
+            <div>
+                <p>{{ campo.label }}: <br> {{ campo }}</p> 
+    
+                {% for error in campo.errors %}
+                    <small style="color: red">{{ error }}</small>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <button type="submit">registro</button>
+    </form>
+{% endblock %}
+
+
+
