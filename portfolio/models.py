@@ -1,5 +1,7 @@
 from distutils.command.upload import upload
 from django.db import models
+from django.db.models import ForeignKey
+from categorias.models import Categoria
 
 """Con estos módulos de Django hago las importaciones necesarias para los tipos
     de datos que va a contener nuestro modelo
@@ -13,3 +15,4 @@ class Proyecto(models.Model):
     descripcion = CharField(max_length=250)
     imagen = ImageField(upload_to="portfolio/images/")
     url = URLField(blank=True)
+    categoria = ForeignKey(Categoria, on_delete=models.CASCADE)
