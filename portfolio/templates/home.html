@@ -30,6 +30,14 @@
                 </div>
             </div>
         {% endfor %}
+        <!-- Acá hago reviso si el usuario está logueado -->
+        {% if user.is_authenticated %}
+            Bienvenido al portal {{ user.username }}!
+            <p><a href="{% url 'logout' %}">Log Out</a></p>
+        {% else %}
+            <p>Debes iniciar sesión</p>
+            <a href="{% url 'login' %}">Log In</a>
+        {% endif %}
     </div>
 
 {% endblock content%}
